@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-image: url('./photo_2024-11-10_14-23-53.jpg'); /* Замените на путь к вашему изображению */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    padding: 20px; /* Добавляем отступы для мобильных устройств */
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.8);
+    transition: background-color 0.3s;
+    z-index: 10; /* Увеличиваем z-index, чтобы кнопка была выше видео */
+}
+
+button:hover {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.images {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.rotating-image {
+    width: 150px; /* Установите нужный размер для изображений */
+    height: 150px; /* Установите нужный размер для изображений */
+    animation: rotate 5s linear infinite; /* Анимация вращения */
+    display: none; /* Скрываем изображения по умолчанию */
+}
+
+.video {
+    display: none; /* Скрываем видео по умолчанию */
+    max-width: 90%; /* Устанавливаем максимальную ширину 90% */
+    max-height: 90%; /* Устанавливаем максимальную высоту 90% */
+    z-index: 5; /* Устанавливаем z-index ниже кнопки */
+}
+
+/* Анимация вращения */
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Адаптивные стили для мобильных устройств */
+@media (max-width: 600px) {
+    button {
+        font-size: 16px; /* Уменьшаем размер шрифта кнопки */
+        padding: 10px 20px; /* Уменьшаем отступы кнопки */
+    }
+
+    .rotating-image {
+        width: 80px; /* Уменьшаем размер изображений на мобильных устройствах */
+        height: 80px; /* Уменьшаем размер изображений на мобильных устройствах */
+    }
+}
+#playButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    animation: colorChange 0.5s infinite, pulse 1s infinite;
+}
+
+@keyframes colorChange {
+    0% { background-color: red; }
+    25% { background-color: yellow; }
+    50% { background-color: green; }
+    75% { background-color: blue; }
+    100% { background-color: red; }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
